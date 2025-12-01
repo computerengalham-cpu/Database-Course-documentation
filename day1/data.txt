@@ -1,0 +1,244 @@
+q1:
+| Feature             | Flat File Systems                                                              | Relational Databases                                                   |
+| ------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------- |
+| **Structure**       | Data stored in plain text files, CSVs, or spreadsheets. No enforced structure. | Data stored in tables with rows and columns. Schema defines structure. |
+| **Data Redundancy** | High redundancy—data often duplicated across files.                            | Low redundancy—normalization reduces duplication.                      |
+| **Relationships**   | No built-in relationships; linking data requires manual logic.                 | Strong relationship support using primary and foreign keys.            |
+| **Example Usage**   | Log files, simple configuration files, small Excel lists.                      | Business applications, banking, e-commerce, ERP systems.               |
+| **Drawbacks**       | Hard to update, low security, no concurrency control, prone to inconsistency.  | Requires DBMS knowledge, more resource-intensive.                      |
+
+q2:
+                    DBMS Advantages
+                          |
+   -----------------------------------------------------
+   |          |            |            |              |
+Security   Integrity     Backup     Redundancy     Concurrency
+                                             Control
+                                                |
+                                           Data Sharing
+DBMS Advantages Mind Map
+
+Security
+Access control, authentication, encryption.
+
+Integrity
+Enforces rules to maintain accurate and consistent data.
+
+Backup
+Automatic backups and recovery support.
+
+Redundancy Control
+Normalization avoids duplicate data.
+
+Concurrency
+Multiple users can access data simultaneously without conflict.
+
+Data Sharing
+Centralized storage enables controlled sharing among users.
+
+
+
+q3:
+Roles in a Database System
+System Analyst
+
+Responsible for gathering requirements, analyzing business processes, and defining system specifications.
+
+Database Designer
+
+Creates conceptual, logical, and physical database designs including ERDs and schema diagrams.
+
+Database Developer
+
+Implements the database structure, writes SQL queries, stored procedures, and optimizes performance.
+
+DBA (Database Administrator)
+
+Handles security, backups, performance tuning, maintenance, monitoring, and access control.
+
+Application Developer
+
+Builds software applications that interact with the database through APIs or queries.
+
+BI Developer
+
+Develops dashboards, reports, and analytics systems using warehouse and OLAP tools.
+
+q4:
+Types of Databases
+*Relational Databases
+
+-Store data in tables.
+
+-Use SQL.
+
+-Enforce relationships.
+
+Examples: SQL Server, MySQL, PostgreSQL.
+
+*Non-Relational (NoSQL) Databases
+
+-Flexible schemas.
+
+-Key-value, document, graph, or column-based.
+
+Examples:
+
+MongoDB – Document store
+
+Cassandra – Column-family store
+
+*Centralized Databases
+
+-Located on a single server.
+
+-Easier to manage, but has a single point of failure.
+
+*Distributed Databases
+
+-Data spread across multiple nodes/locations.
+
+-More scalable and fault-tolerant.
+
+*Cloud Databases
+
+-Hosted and managed by cloud providers.
+
+-Pay-as-you-go with automatic scaling.
+
+Examples: Azure SQL, Amazon RDS, Google Cloud Spanner.
+
+Use Case Examples
+
+Relational: Banking, HR systems
+
+NoSQL: Social media feeds, IoT data
+
+Distributed: Global e-commerce platforms
+
+Cloud: SaaS apps, startups scaling quickly
+
+q5:
+Cloud Storage and Databases
+What is Cloud Storage?
+
+A service that stores data on remote servers accessed over the internet (e.g., Azure Blob Storage).
+
+Relation to Databases
+
+Cloud databases run on cloud infrastructure, using cloud storage for persistence.
+
+Advantages of Cloud Databases:
+
+-Automatic backups
+
+-High availability
+
+-Scalability
+
+-Reduced hardware cost
+
+Disadvantages:
+
+-Ongoing subscription cost
+
+-Dependence on internet
+
+-Potential latency
+
+-Vendor lock-in
+
+q6:
+Database Engines and Languages
+What is a Database Engine?
+
+The underlying software that manages storage, querying, transactions, and indexing.
+
+Examples and Languages
+| Engine     | Language       |
+| ---------- | -------------- |
+| SQL Server | T-SQL          |
+| Oracle     | PL/SQL         |
+| MySQL      | SQL (ANSI)     |
+| PostgreSQL | SQL + PL/pgSQL |
+
+Relationship Between Engine & Language
+
+-Each engine has its own extensions but supports standard SQL to some degree.
+
+Can One Language Work Across Engines?
+
+-Basic SQL works across engines.
+
+-Advanced features (triggers, functions, stored procedures) require engine-specific syntax.
+
+q7:
+Can We Transfer a Database Between Engines?
+Is It Possible?
+
+Yes, database migration is possible between engines like SQL Server → MySQL or Oracle → PostgreSQL.
+
+Challenges:
+
+-Different data types
+
+-SQL dialect differences
+
+-Stored procedure incompatibility
+
+-Trigger/constraint variations
+
+-Performance tuning differences
+
+What to Consider Before Transferring:
+
+-Data type mappings
+
+-Rewriting stored procedures
+
+-Rebuilding triggers
+
+-Testing queries for performance
+
+-Ensuring application compatibility
+
+q8:
+Logical vs Physical Schema
+Logical Schema:
+
+-Abstract design of the database.
+
+-Defines entities, attributes, and relationships.
+
+-Does not depend on any DBMS.
+
+Physical Schema:
+
+-How the data is stored on disk.
+
+-Includes indexes, partitions, file groups, storage formats.
+
+Difference:
+
+-Logical = “What data looks like.”
+
+-Physical = “How data is stored.”
+
+Example: Student Entity
+Logical Schema (ERD-like)
+Entity: Student
+Attributes:
+- StudentID
+- FirstName
+- LastName
+- Email
+- CourseID (FK)
+Physical Schema (SQL Script Example)
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(100),
+    LastName VARCHAR(100),
+    Email VARCHAR(255),
+    CourseID INT,
+    FOREIGN KEY (CourseID) REFERENCES Course(CourseID)
+);
