@@ -64,3 +64,9 @@ Add DName nvarchar(20) Not Null;
 
 alter table Department
 Add DSSN int foreign key (DSSN) references Employee (SSN)
+
+alter table Department
+Add Hiringdate date not null
+default getdate();
+
+drop table WorksIn
